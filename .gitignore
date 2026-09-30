@@ -1,0 +1,29 @@
+# Track A only: keep the branch free of previous-week application files and local state.
+*
+!.gitignore
+!README.md
+!pyproject.toml
+!uv.lock
+!Makefile
+!mlops/
+!mlops/__init__.py
+!mlops/track_a/
+!mlops/track_a/__init__.py
+!mlops/track_a/**
+!tests/
+!tests/test_track_a.py
+!artifacts/
+!artifacts/track_a/
+!artifacts/track_a/**
+!docs/
+!docs/track_a_evidence.md
+
+# Never commit credentials, downloaded data, model binaries, or local MLflow state.
+.env
+data/
+mlruns/
+mlartifacts/
+mlflow*.db
+*.joblib
+__pycache__/
+.venv/

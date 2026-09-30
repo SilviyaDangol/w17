@@ -1,0 +1,17 @@
+{
+  "model": "TelcoChurnBest",
+  "version": 1,
+  "transitions": [
+    "Staging",
+    "Production"
+  ],
+  "selected_run": {
+    "run_id": "e709da12649c43aba915f0d91e4d14d5",
+    "run_name": "forest_300_depth_8",
+    "accuracy": 0.7597955706984668,
+    "precision": 0.5309859154929577,
+    "recall": 0.8072805139186295,
+    "f1": 0.6406117247238743,
+    "roc_auc": 0.8609096836329097
+  }
+}
