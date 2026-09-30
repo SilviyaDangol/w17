@@ -6,12 +6,27 @@ import mlflow
 import numpy as np
 from evidently import Report
 from evidently.metrics import CategoryCount, MeanValue, ValueDrift
+from evidently.metrics.column_statistics import StatisticsCalculation, StatisticsMetric
 from evidently.presets import DataDriftPreset
 from evidently.tests import Reference, gt
 
 from .data import load_data
 
 OUT = Path("artifacts/track_a")
+
+
+class MonthlyChargeBusinessMetric(StatisticsMetric):
+    """Custom Evidently metric: business-facing mean monthly charge monitor."""
+
+    pass
+
+
+class MonthlyChargeBusinessMetricCalculation(StatisticsCalculation[MonthlyChargeBusinessMetric]):
+    def calculate_value(self, column) -> float:
+        return float(column.data.mean())
+
+    def display_name(self) -> str:
+        return "Custom business metric: mean MonthlyCharges"
 
 
 def main() -> None:
@@ -27,6 +42,7 @@ def main() -> None:
         "target_drift.html": Report([ValueDrift(column="Churn")]),
         # Explicit non-default monitored metrics and thresholds are our custom checks.
         "custom_monitoring.html": Report([
+            MonthlyChargeBusinessMetric(column="MonthlyCharges", tests=[gt(Reference(relative=0.20))]),
             MeanValue(column="MonthlyCharges", tests=[gt(Reference(relative=0.20))]),
             CategoryCount(column="Contract", category="Month-to-month", share_tests=[gt(Reference(relative=0.20))]),
         ]),

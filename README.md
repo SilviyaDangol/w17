@@ -53,7 +53,7 @@ Send a complete Telco feature row to `POST /predict` as `{"features": {...}}`. S
 
 - `data_drift.html` — feature drift.
 - `target_drift.html` — Evidently `ValueDrift` on `Churn`.
-- `custom_monitoring.html` — explicit mean-charge and Month-to-month share thresholds using Evidently metric/test APIs.
+- `custom_monitoring.html` — the project-defined `MonthlyChargeBusinessMetric` plus explicit mean-charge and Month-to-month share thresholds using Evidently metric/test APIs.
 
 If target drift or either custom threshold fails in production, the action is a retraining-review ticket, followed by rerunning this comparison and promotion workflow.
 
