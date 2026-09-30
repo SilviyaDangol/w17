@@ -1,0 +1,125 @@
+[
+  {
+    "case_id": "leave",
+    "query": "How is annual leave handled?",
+    "golden": "Annual leave is governed by the policy.",
+    "response": "Insufficient evidence: unable to fully verify an answer within the iteration limit.",
+    "outcome": "insufficient_evidence",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 2,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 3,
+        "action": "search_documents",
+        "reasoning": "The evidence does not provide specific details on how annual leave is handled, only that there is a policy governing it.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 4,
+        "action": "search_documents",
+        "reasoning": "The evidence does not provide specific details on how annual leave is handled, only that there is a policy governing it.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      }
+    ],
+    "iterations": 4,
+    "termination_reason": "max_iterations_or_unverified",
+    "tokens": {
+      "prompt_tokens": 993,
+      "completion_tokens": 176,
+      "total_tokens": 1169
+    },
+    "reference_correct": false,
+    "reference_reasoning": "The candidate's answer does not preserve the essential information from the reference. The reference states that annual leave is governed by a policy, while the candidate's answer indicates a lack of evidence to verify this information, which contradicts the certainty expressed in the reference.",
+    "grounded": false,
+    "grounded_reasoning": "The candidate's answer indicates a lack of engagement with the provided evidence. The evidence clearly states that the annual leave policy governs employee annual leave and mentions the absence of personal contact information. The candidate's response of 'insufficient evidence' does not align with the clear information given, which is sufficient to verify the context of the annual leave policy.",
+    "passed": false
+  },
+  {
+    "case_id": "source",
+    "query": "What source supports the leave answer?",
+    "golden": "The annual leave policy is the source.",
+    "response": "Could you please clarify what specific 'leave answer' you are referring to?",
+    "outcome": "ask_clarification",
+    "trace": [
+      {
+        "step": 1,
+        "action": "ask_clarification",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": null,
+        "arguments": {},
+        "result": "clarification requested"
+      }
+    ],
+    "iterations": 1,
+    "termination_reason": "clarification",
+    "tokens": {
+      "prompt_tokens": 180,
+      "completion_tokens": 44,
+      "total_tokens": 224
+    },
+    "reference_correct": false,
+    "reference_reasoning": "The candidate answer does not preserve the essential information from the reference answer. The reference clearly states that the annual leave policy is the source, while the candidate's response asks for clarification on a 'leave answer,' which does not align with the information provided in the reference.",
+    "grounded": true,
+    "grounded_reasoning": "The candidate is asking for clarification on the specific 'leave answer' being referred to, which indicates they are grounded in the evidence provided about the annual leave policy and are not making assumptions or inventing information.",
+    "passed": false
+  },
+  {
+    "case_id": "unknown",
+    "query": "What is the CEO's private phone number?",
+    "golden": "Insufficient evidence is available in the documents.",
+    "response": "Could you please specify which CEO you are referring to?",
+    "outcome": "ask_clarification",
+    "trace": [
+      {
+        "step": 1,
+        "action": "ask_clarification",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": null,
+        "arguments": {},
+        "result": "clarification requested"
+      }
+    ],
+    "iterations": 1,
+    "termination_reason": "clarification",
+    "tokens": {
+      "prompt_tokens": 182,
+      "completion_tokens": 43,
+      "total_tokens": 225
+    },
+    "reference_correct": false,
+    "reference_reasoning": "The candidate answer does not preserve the essential information from the reference answer, which states that there is insufficient evidence available. Instead, the candidate is asking for clarification about a CEO, which is unrelated to the lack of evidence mentioned in the reference.",
+    "grounded": true,
+    "grounded_reasoning": "The candidate's response indicates a request for clarification rather than making assumptions or providing unavailable private information. This shows they are grounded in the evidence provided and are not inventing information.",
+    "passed": false
+  }
+]

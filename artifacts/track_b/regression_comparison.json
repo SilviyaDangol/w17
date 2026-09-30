@@ -1,0 +1,25 @@
+[
+  {
+    "version": "prompt_v1",
+    "pct_tests_passed": 0.0,
+    "failed_cases": [
+      "leave",
+      "source",
+      "unknown"
+    ]
+  },
+  {
+    "version": "prompt_v2",
+    "pct_tests_passed": 0.0,
+    "failed_cases": [
+      "leave",
+      "source",
+      "unknown"
+    ]
+  },
+  {
+    "version": "prompt_v3",
+    "pct_tests_passed": 1.0,
+    "failed_cases": []
+  }
+]

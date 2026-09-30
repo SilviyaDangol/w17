@@ -1,0 +1,107 @@
+[
+  {
+    "case_id": "leave",
+    "query": "How is annual leave handled?",
+    "golden": "Annual leave is governed by the policy.",
+    "response": "The annual leave policy governs employee annual leave.",
+    "outcome": "finish",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 2,
+        "action": "finish",
+        "reasoning": "The answer is supported by the evidence.",
+        "tool": null,
+        "arguments": {},
+        "result": "success"
+      }
+    ],
+    "iterations": 2,
+    "termination_reason": "success",
+    "tokens": {
+      "prompt_tokens": 544,
+      "completion_tokens": 67,
+      "total_tokens": 611
+    }
+  },
+  {
+    "case_id": "source",
+    "query": "What source supports the leave answer?",
+    "golden": "The annual leave policy is the source.",
+    "response": "The source that supports the leave answer is the annual leave policy document.",
+    "outcome": "finish",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "What source supports the leave answer?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 2,
+        "action": "finish",
+        "reasoning": "The answer is supported by the evidence that the annual leave policy governs employee annual leave.",
+        "tool": null,
+        "arguments": {},
+        "result": "success"
+      }
+    ],
+    "iterations": 2,
+    "termination_reason": "success",
+    "tokens": {
+      "prompt_tokens": 547,
+      "completion_tokens": 97,
+      "total_tokens": 644
+    }
+  },
+  {
+    "case_id": "unknown",
+    "query": "What is the CEO's private phone number?",
+    "golden": "Insufficient evidence is available in the documents.",
+    "response": "Insufficient evidence is available in the documents.",
+    "outcome": "finish",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "CEO's private phone number",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 2,
+        "action": "finish",
+        "reasoning": "The evidence does not contain any personal contact information, confirming that the answer is supported.",
+        "tool": null,
+        "arguments": {},
+        "result": "success"
+      }
+    ],
+    "iterations": 2,
+    "termination_reason": "success",
+    "tokens": {
+      "prompt_tokens": 549,
+      "completion_tokens": 89,
+      "total_tokens": 638
+    }
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "case_id": "leave",
+    "query": "How is annual leave handled?",
+    "golden": "Annual leave is governed by the policy.",
+    "response": "Insufficient evidence: unable to fully verify an answer within the iteration limit.",
+    "outcome": "insufficient_evidence",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 2,
+        "action": "search_documents",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 3,
+        "action": "search_documents",
+        "reasoning": "The evidence does not provide specific details on how annual leave is handled, only that there is a policy governing it.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      },
+      {
+        "step": 4,
+        "action": "search_documents",
+        "reasoning": "The evidence does not provide specific details on how annual leave is handled, only that there is a policy governing it.",
+        "tool": "search_documents",
+        "arguments": {
+          "query": "How is annual leave handled?",
+          "limit": 4
+        },
+        "result": "[{\"document_id\": \"policy-1\", \"filename\": \"annual_leave_policy.md\", \"chunk_id\": \"leave-1\", \"text\": \"The annual leave policy governs employee annual leave. No personal contact information is present.\", \"distance\": 0.1}]"
+      }
+    ],
+    "iterations": 4,
+    "termination_reason": "max_iterations_or_unverified",
+    "tokens": {
+      "prompt_tokens": 993,
+      "completion_tokens": 176,
+      "total_tokens": 1169
+    }
+  },
+  {
+    "case_id": "source",
+    "query": "What source supports the leave answer?",
+    "golden": "The annual leave policy is the source.",
+    "response": "Could you please clarify what specific 'leave answer' you are referring to?",
+    "outcome": "ask_clarification",
+    "trace": [
+      {
+        "step": 1,
+        "action": "ask_clarification",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": null,
+        "arguments": {},
+        "result": "clarification requested"
+      }
+    ],
+    "iterations": 1,
+    "termination_reason": "clarification",
+    "tokens": {
+      "prompt_tokens": 180,
+      "completion_tokens": 44,
+      "total_tokens": 224
+    }
+  },
+  {
+    "case_id": "unknown",
+    "query": "What is the CEO's private phone number?",
+    "golden": "Insufficient evidence is available in the documents.",
+    "response": "Could you please specify which CEO you are referring to?",
+    "outcome": "ask_clarification",
+    "trace": [
+      {
+        "step": 1,
+        "action": "ask_clarification",
+        "reasoning": "No self-check rationale was supplied by the model.",
+        "tool": null,
+        "arguments": {},
+        "result": "clarification requested"
+      }
+    ],
+    "iterations": 1,
+    "termination_reason": "clarification",
+    "tokens": {
+      "prompt_tokens": 182,
+      "completion_tokens": 43,
+      "total_tokens": 225
+    }
+  }
+]

@@ -1,0 +1,1 @@
+Answer the user's document question from retrieved evidence. Return a valid JSON agent decision.
